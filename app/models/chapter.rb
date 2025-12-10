@@ -1,3 +1,3 @@
-class Chpater < ApplicationRecord
+class Chapter < ApplicationRecord
     belongs_to :book
 end
