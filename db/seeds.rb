@@ -9,40 +9,41 @@
 #   end
 
 # Clear existing data
-Chapter.destroy_all
-Book.destroy_all
+Chapter.delete_all
+Book.delete_all
 
 puts "Seeding books and chapters..."
 
-# Sample books
+# Create books
 book1 = Book.create!(
-  title: "The Great Adventure",
-  description: "A thrilling story of courage and discovery."
+  title: 'The Great Adventure',
+  author: 'John Smith',
+  description: 'A thrilling story of courage and discovery.',
+  cover_url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb'
 )
 
 book2 = Book.create!(
-  title: "Secrets of the Forest",
-  description: "Mysteries hidden in the ancient woods."
+  title: 'Secrets of the Forest',
+  author: 'Jane Doe',
+  description: 'Mysteries hidden in the ancient woods.',
+  cover_url: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca'
 )
 
 book3 = Book.create!(
-  title: "Legends of the Lost City",
-  description: "An epic tale of explorers uncovering ancient secrets."
+  title: 'Legends of the Lost City',
+  author: 'Alex Johnson',
+  description: 'An epic tale of explorers uncovering ancient secrets.',
+  cover_url: 'https://images.unsplash.com/photo-1512820790803-83ca734da794'
 )
 
-# Sample chapters for book1
-Chapter.create!(book: book1, title: "Chapter 1: Awakening", body: "The story begins...", position: 1)
-Chapter.create!(book: book1, title: "Chapter 2: The First Trial", body: "Challenges arise...", position: 2)
-Chapter.create!(book: book1, title: "Chapter 3: Into the Unknown", body: "The journey continues...", position: 3)
-
-# Sample chapters for book2
-Chapter.create!(book: book2, title: "Chapter 1: Whispering Trees", body: "The forest speaks...", position: 1)
-Chapter.create!(book: book2, title: "Chapter 2: Hidden Path", body: "A secret trail...", position: 2)
-Chapter.create!(book: book2, title: "Chapter 3: Shadowed Glade", body: "Mystery deepens...", position: 3)
-
-# Sample chapters for book3
-Chapter.create!(book: book3, title: "Chapter 1: Arrival", body: "Explorers reach the city...", position: 1)
-Chapter.create!(book: book3, title: "Chapter 2: Ancient Secrets", body: "Hidden knowledge emerges...", position: 2)
-Chapter.create!(book: book3, title: "Chapter 3: The Final Challenge", body: "The climax of the adventure...", position: 3)
+# Create chapters for each book
+Chapter.create!([
+  { book: book1, title: 'Chapter 1: Awakening', body: 'The story begins...', position: 1 },
+  { book: book1, title: 'Chapter 2: The Journey', body: 'The adventure continues...', position: 2 },
+  { book: book2, title: 'Chapter 1: The Woods', body: 'A secret is revealed...', position: 1 },
+  { book: book2, title: 'Chapter 2: The Whisper', body: 'Voices in the forest...', position: 2 },
+  { book: book3, title: 'Chapter 1: Discovery', body: 'A lost city is found...', position: 1 },
+  { book: book3, title: 'Chapter 2: The Legend', body: 'Ancient secrets uncovered...', position: 2 }
+])
 
 puts "Seeding complete!"
